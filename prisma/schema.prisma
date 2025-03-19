@@ -14,9 +14,126 @@ datasource db {
 }
 
 model User {
-  id        Int      @id @default(autoincrement())
-  email     String   @unique
-  name      String?
+  id         Int        @id @default(autoincrement())
+  email      String     @unique
+  name       String?
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @updatedAt
+  notes      Note[]
+  reminders  Reminder[]
+  tags       Tag[]
+  categories Category[]
+}
+
+model Note {
+  id          Int           @id @default(autoincrement())
+  title       String
+  content     String        @db.Text
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+  isPinned    Boolean       @default(false)
+  isArchived  Boolean       @default(false)
+  color       String? // For note color customization
+  user        User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId      Int
+  tags        TagsOnNotes[]
+  category    Category?     @relation(fields: [categoryId], references: [id])
+  categoryId  Int?
+  attachments Attachment[]
+}
+
+model Reminder {
+  id           Int               @id @default(autoincrement())
+  title        String
+  description  String?           @db.Text
+  dueDate      DateTime
+  completedAt  DateTime?
+  priority     Priority          @default(NORMAL)
+  status       Status            @default(PENDING)
+  recurrence   Recurrence?
+  notifyBefore Int? // Minutes before to notify
+  user         User              @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId       Int
+  tags         TagsOnReminders[]
+  category     Category?         @relation(fields: [categoryId], references: [id])
+  categoryId   Int?
+}
+
+model Tag {
+  id        Int               @id @default(autoincrement())
+  name      String
+  color     String?
+  user      User              @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    Int
+  notes     TagsOnNotes[]
+  reminders TagsOnReminders[]
+
+  @@unique([name, userId])
+}
+
+model Category {
+  id        Int        @id @default(autoincrement())
+  name      String
+  color     String?
+  icon      String?
+  user      User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    Int
+  notes     Note[]
+  reminders Reminder[]
+
+  @@unique([name, userId])
+}
+
+model TagsOnNotes {
+  note      Note     @relation(fields: [noteId], references: [id], onDelete: Cascade)
+  noteId    Int
+  tag       Tag      @relation(fields: [tagId], references: [id], onDelete: Cascade)
+  tagId     Int
   createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+
+  @@id([noteId, tagId])
+}
+
+model TagsOnReminders {
+  reminder   Reminder @relation(fields: [reminderId], references: [id], onDelete: Cascade)
+  reminderId Int
+  tag        Tag      @relation(fields: [tagId], references: [id], onDelete: Cascade)
+  tagId      Int
+  createdAt  DateTime @default(now())
+
+  @@id([reminderId, tagId])
+}
+
+model Attachment {
+  id        Int      @id @default(autoincrement())
+  filename  String
+  url       String
+  type      String // MIME type
+  size      Int // in bytes
+  note      Note     @relation(fields: [noteId], references: [id], onDelete: Cascade)
+  noteId    Int
+  createdAt DateTime @default(now())
+}
+
+enum Priority {
+  LOW
+  NORMAL
+  HIGH
+  URGENT
+}
+
+enum Status {
+  PENDING
+  IN_PROGRESS
+  COMPLETED
+  CANCELLED
+}
+
+enum Recurrence {
+  NONE
+  DAILY
+  WEEKLY
+  MONTHLY
+  YEARLY
+  CUSTOM
 }
