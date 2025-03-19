@@ -14,15 +14,16 @@ datasource db {
 }
 
 model User {
-  id         Int        @id @default(autoincrement())
-  email      String     @unique
-  name       String?
-  createdAt  DateTime   @default(now())
-  updatedAt  DateTime   @updatedAt
-  notes      Note[]
-  reminders  Reminder[]
-  tags       Tag[]
-  categories Category[]
+  id           Int           @id @default(autoincrement())
+  email        String        @unique
+  name         String?
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  notes        Note[]
+  reminders    Reminder[]
+  tags         Tag[]
+  categories   Category[]
+  subscription Subscription?
 }
 
 model Note {
@@ -136,4 +137,31 @@ enum Recurrence {
   MONTHLY
   YEARLY
   CUSTOM
+}
+
+enum SubscriptionTier {
+  FREE
+  BASIC
+  PRO
+  ENTERPRISE
+}
+
+model Subscription {
+  id                 Int              @id @default(autoincrement())
+  tier               SubscriptionTier @default(FREE)
+  startDate          DateTime         @default(now())
+  endDate            DateTime?
+  isActive           Boolean          @default(true)
+  canceledAt         DateTime?
+  lastPaymentDate    DateTime?
+  nextPaymentDate    DateTime?
+  paymentMethod      String?
+  paymentMethodLast4 String? // Last 4 digits of card/payment method
+  user               User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId             Int              @unique // One-to-one relation with User
+  createdAt          DateTime         @default(now())
+  updatedAt          DateTime         @updatedAt
+
+  @@index([tier])
+  @@index([isActive])
 }
