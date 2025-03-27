@@ -83,9 +83,9 @@ export default function Hero() {
                         className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6"
                         variants={fadeInUp}
                     >
-                        The Reminder App That{" "}
+                        No clutter. No chaos. Just{" "}
                         <span className="text-blue-400/90">
-                            Actually Reminds
+                            Lextion
                         </span>
                     </motion.h1>
                     <motion.p
