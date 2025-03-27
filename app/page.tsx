@@ -26,12 +26,64 @@ export default function Home() {
                 <div className="absolute inset-0 z-0">
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(37,99,235,0.05),transparent_70%)]"></div>
                     <motion.div
-                        className="absolute top-20 left-20 w-2 h-2 rounded-sm bg-blue-400/30 opacity-50"
-                        animate={{
-                            scale: [1, 1.2, 1],
-                            opacity: [0.3, 0.5, 0.3],
+                        className="absolute inset-0"
+                        style={{
+                            backgroundImage: `linear-gradient(to right, rgba(59, 130, 246, 0.15) 1px, transparent 1px),
+                                           linear-gradient(to bottom, rgba(59, 130, 246, 0.15) 1px, transparent 1px)`,
+                            backgroundSize: "40px 40px",
+                            maskImage:
+                                "radial-gradient(circle at center, black 30%, transparent 70%)",
+                            WebkitMaskImage:
+                                "radial-gradient(circle at center, black 30%, transparent 70%)",
                         }}
-                        transition={{ duration: 3, repeat: Infinity }}
+                        animate={{
+                            backgroundPosition: ["0px 0px", "40px 40px"],
+                        }}
+                        transition={{
+                            duration: 20,
+                            repeat: Infinity,
+                            ease: "linear",
+                        }}
+                    />
+                    <motion.div
+                        className="absolute inset-0"
+                        style={{
+                            backgroundImage: `linear-gradient(to right, rgba(59, 130, 246, 0.08) 1px, transparent 1px),
+                                           linear-gradient(to bottom, rgba(59, 130, 246, 0.08) 1px, transparent 1px)`,
+                            backgroundSize: "80px 80px",
+                            maskImage:
+                                "radial-gradient(circle at center, black 40%, transparent 80%)",
+                            WebkitMaskImage:
+                                "radial-gradient(circle at center, black 40%, transparent 80%)",
+                        }}
+                        animate={{
+                            backgroundPosition: ["0px 0px", "80px 80px"],
+                        }}
+                        transition={{
+                            duration: 30,
+                            repeat: Infinity,
+                            ease: "linear",
+                        }}
+                    />
+                    <motion.div
+                        className="absolute inset-0"
+                        style={{
+                            backgroundImage: `linear-gradient(to right, rgba(59, 130, 246, 0.05) 1px, transparent 1px),
+                                           linear-gradient(to bottom, rgba(59, 130, 246, 0.05) 1px, transparent 1px)`,
+                            backgroundSize: "120px 120px",
+                            maskImage:
+                                "radial-gradient(circle at center, black 50%, transparent 90%)",
+                            WebkitMaskImage:
+                                "radial-gradient(circle at center, black 50%, transparent 90%)",
+                        }}
+                        animate={{
+                            backgroundPosition: ["0px 0px", "120px 120px"],
+                        }}
+                        transition={{
+                            duration: 40,
+                            repeat: Infinity,
+                            ease: "linear",
+                        }}
                     />
                     <motion.div
                         className="absolute top-40 right-40 w-1 h-1 rounded-sm bg-blue-300/20 opacity-30"
