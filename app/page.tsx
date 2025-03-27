@@ -76,18 +76,17 @@ export default function Home() {
                             className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6"
                             variants={fadeInUp}
                         >
-                            Discover the Future{" "}
+                            The Reminder App That{" "}
                             <span className="text-blue-400/90">
-                                with Lextion
+                                Actually Reminds
                             </span>
                         </motion.h1>
                         <motion.p
                             className="text-gray-400 text-lg sm:text-xl mb-8 max-w-xl"
                             variants={fadeInUp}
                         >
-                            Transforming ideas into digital reality. We create
-                            innovative solutions to help your business thrive in
-                            the digital landscape.
+                            Simple, sleek, and built to help you remember, not
+                            organize your life into a second job.
                         </motion.p>
                         <motion.div
                             className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
@@ -896,6 +895,74 @@ export default function Home() {
                     </div>
                 </div>
             </section>
+            <motion.section
+                className="py-20 bg-gray-900/50"
+                initial="initial"
+                whileInView="animate"
+                viewport={{ once: true }}
+            >
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <motion.div
+                        className="text-center mb-16"
+                        variants={fadeInUp}
+                    >
+                        <motion.h2
+                            className="text-3xl sm:text-4xl font-bold mb-4"
+                            variants={fadeInUp}
+                        >
+                            Why Choose{" "}
+                            <span className="text-blue-400/90">Lextion</span>
+                        </motion.h2>
+                        <motion.p
+                            className="text-gray-400 max-w-2xl mx-auto"
+                            variants={fadeInUp}
+                        >
+                            While Notion & Obsidian are powerful tools, they're
+                            designed for deep organization and knowledge
+                            management. Lextion is different.
+                        </motion.p>
+                    </motion.div>
+
+                    <motion.div
+                        className="grid grid-cols-1 md:grid-cols-2 gap-8"
+                        variants={staggerContainer}
+                    >
+                        <motion.div
+                            className="bg-gray-800/50 p-8 rounded-lg border border-gray-700/50"
+                            variants={fadeInUp}
+                        >
+                            <h3 className="text-xl font-bold mb-4 text-blue-400/90">
+                                Notion & Obsidian
+                            </h3>
+                            <ul className="text-gray-400 space-y-3">
+                                <li>
+                                    • Powerful but bloated for quick reminders
+                                </li>
+                                <li>• Designed for deep organization</li>
+                                <li>• Requires significant setup time</li>
+                                <li>• Complex knowledge management focus</li>
+                            </ul>
+                        </motion.div>
+                        <motion.div
+                            className="bg-blue-900/20 p-8 rounded-lg border border-blue-500/30"
+                            variants={fadeInUp}
+                        >
+                            <h3 className="text-xl font-bold mb-4 text-blue-400/90">
+                                Lextion
+                            </h3>
+                            <ul className="text-gray-400 space-y-3">
+                                <li>• Lightweight and instant</li>
+                                <li>• Intuitive and frictionless</li>
+                                <li>• No setup required</li>
+                                <li>
+                                    • Smart reminders that work when you need
+                                    them
+                                </li>
+                            </ul>
+                        </motion.div>
+                    </motion.div>
+                </div>
+            </motion.section>
         </div>
     );
 }
