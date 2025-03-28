@@ -40,38 +40,6 @@ export default function Hero() {
                         ease: "linear",
                     }}
                 />
-                <motion.div
-                    className="absolute top-40 right-40 w-1 h-1 rounded-sm bg-blue-300/20 opacity-30"
-                    animate={{
-                        scale: [1, 1.2, 1],
-                        opacity: [0.2, 0.4, 0.2],
-                    }}
-                    transition={{ duration: 3, delay: 1, repeat: Infinity }}
-                />
-                <motion.div
-                    className="absolute bottom-60 left-60 w-2 h-2 rounded-sm bg-blue-500/30 opacity-40"
-                    animate={{
-                        scale: [1, 1.2, 1],
-                        opacity: [0.3, 0.5, 0.3],
-                    }}
-                    transition={{
-                        duration: 3,
-                        delay: 0.5,
-                        repeat: Infinity,
-                    }}
-                />
-                <motion.div
-                    className="absolute bottom-20 right-20 w-1 h-1 rounded-sm bg-blue-400/20 opacity-30"
-                    animate={{
-                        scale: [1, 1.2, 1],
-                        opacity: [0.2, 0.4, 0.2],
-                    }}
-                    transition={{
-                        duration: 3,
-                        delay: 1.5,
-                        repeat: Infinity,
-                    }}
-                />
             </div>
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center md:text-left md:flex md:items-center md:justify-between">
