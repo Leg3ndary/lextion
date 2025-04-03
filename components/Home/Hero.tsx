@@ -1,14 +1,5 @@
 import { motion } from "framer-motion";
-
-const fadeInUp = {
-    initial: { y: 20, opacity: 0 },
-    animate: { y: 0, opacity: 1 },
-    transition: { duration: 0.5 },
-};
-
-const staggerContainer = {
-    animate: { transition: { staggerChildren: 0.1 } },
-};
+import { fadeInUp, staggerContainer } from "./animations";
 
 export default function Hero() {
     return (
@@ -52,9 +43,7 @@ export default function Hero() {
                         variants={fadeInUp}
                     >
                         No clutter. No chaos. Just{" "}
-                        <span className="text-blue-400/90">
-                            Lextion
-                        </span>
+                        <span className="text-blue-400/90">Lextion</span>
                     </motion.h1>
                     <motion.p
                         className="text-gray-400 text-lg sm:text-xl mb-8 max-w-xl"

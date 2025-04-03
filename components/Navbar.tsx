@@ -53,7 +53,6 @@ export default function NavBar() {
                         {[
                             { href: "#", label: "Home" },
                             { href: "#features", label: "Features" },
-                            { href: "#services", label: "Services" },
                             { href: "#portfolio", label: "Portfolio" },
                             { href: "#testimonials", label: "Testimonials" },
                             { href: "#contact", label: "Contact" },
