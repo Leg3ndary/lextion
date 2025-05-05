@@ -96,7 +96,7 @@ export default function Testimonials() {
                                 animate={{ opacity: 1 }}
                                 transition={{ delay: 0.3 * index }}
                             >
-                                "{testimonial.quote}"
+                                &quot;{testimonial.quote}&quot;
                             </motion.p>
                         </motion.div>
                     ))}

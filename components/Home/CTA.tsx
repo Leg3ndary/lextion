@@ -24,7 +24,7 @@ export default function CTA() {
                     className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto"
                     variants={fadeInUp}
                 >
-                    Let's work together to create innovative solutions that
+                    Let&apos;s work together to create innovative solutions that
                     drive your business forward.
                 </motion.p>
                 <motion.div

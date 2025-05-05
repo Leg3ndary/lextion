@@ -22,7 +22,7 @@ export default function Comparison() {
                         className="text-gray-400 max-w-2xl mx-auto"
                         variants={fadeInUp}
                     >
-                        While Notion & Obsidian are powerful tools, they're
+                        While Notion & Obsidian are powerful tools, they&apos;re
                         designed for deep organization and knowledge management.
                         Lextion is different.
                     </motion.p>
